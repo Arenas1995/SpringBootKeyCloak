@@ -1,0 +1,22 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: spring-boot-keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/develop
+          jwk-set-uri: http://localhost:8080/realms/develop/protocol/openid-connect/certs
+
+jwt:
+  auth:
+    converter:
+      principal-attribute: preferred_username
+      resource-id: security-client
+
+logging:
+  level:
+    org.springframework.security: INFO
